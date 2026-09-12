@@ -1,304 +1,338 @@
 /* Geral */
 
-html, body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #fff;
-    color: #222;
-    margin: 0;
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  color: #222;
+  margin: 0;
 }
 
 #app {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel {
-    margin: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Área dos Pontos */
 
 .scores {
-    display: flex;
+  display: flex;
 }
 
 .score {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .score h1 {
-    font-weight: 300;
-    font-size: 1.6rem;
+  font-weight: 300;
+  font-size: 1.6rem;
 }
 
 .life-bar {
-    width: 80%;
-    height: 20px;
-    border: 1px solid #AAA;
+  width: 80%;
+  height: 20px;
+  border: 1px solid #aaa;
 }
 
 .life-bar .life {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    background-color: green;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: green;
 }
 
-.life-bar .mana{
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    background-color: blue;
+.life-bar .mana {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: blue;
 }
 
-
-.life-bar .raiva{
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    background-color: red;
+.life-bar .raiva {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: red;
 }
 
 .life-bar .life.danger {
-    background-color: red;
+  background-color: red;
 }
 
-.monstroFloat{
-    margin-top:5px;
+.monstroFloat {
+  margin-top: 5px;
 }
 
-.jogadorFloat{
-    margin-top:5px;
+.jogadorFloat {
+  margin-top: 5px;
 }
 
 /* Área do Resultado */
 
 .result {
-    display: flex;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .result .win {
-    color: green;
+  color: green;
 }
 
 .result .lose {
-    color: red;
+  color: red;
 }
 
 /* Área dos Botões (Controle do Jogo) */
 
 .buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
-    padding: 5px 10px;
-    margin: 0px 10px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-size: 1.1rem;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 
 .new-game {
-    background-color: #4253af;
-    color: #fff;
+  background-color: #4253af;
+  color: #fff;
 }
 
 .attack {
-    background-color: #e51c23;
-    color: #fff;
+  background-color: #e51c23;
+  color: #fff;
 }
 
 .especial-attack {
-    background-color: #0655e7;
-    color: #FFF;
+  background-color: #0655e7;
+  color: #fff;
 }
 
 .cura {
-    background-color: #259b24;
-    color: #FFF;
+  background-color: #259b24;
+  color: #fff;
 }
 
 .give-up {
-    background-color: #BBB;
-    color: #000;
+  background-color: #bbb;
+  color: #000;
 }
 
-.disabled{
-    opacity: 0.5;
+.disabled {
+  opacity: 0.5;
 }
 
-.buttoncenter{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.buttoncenter {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Área dos Logs */
 
 .logs ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .logs ul li {
-    display: flex;
-    justify-content: center;
-    margin: 4px 0px;
-    padding: 3px 0px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 4px 0px;
+  padding: 3px 0px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 3px;
 }
 
 .player {
-    background-color: #0484dacb;
-    color: #fff;
+  background-color: #0484dacb;
+  color: #fff;
 }
 
 .monster {
-    background-color: #e23737cb;
-    color: #fff;
+  background-color: #e23737cb;
+  color: #fff;
 }
 
 .player-cura {
-    background-color: #34b62fcb;
-    color: #fff;
+  background-color: #34b62fcb;
+  color: #fff;
 }
 
 .player-mana {
-    background-color: #06b3e7cb;
-    color: #fff;
+  background-color: #06b3e7cb;
+  color: #fff;
 }
 
 .player-especial {
-    background-color: #0655e7cb;
-    color: #fff;
+  background-color: #0655e7cb;
+  color: #fff;
 }
 
 .monster-especial {
-    background-color: #ff0000cb;
-    color: #fff;
+  background-color: #ff0000cb;
+  color: #fff;
 }
 
 .monster-raiva {
-    background-color: #e56c1ccb;
-    color: #fff;
+  background-color: #e56c1ccb;
+  color: #fff;
 }
 
 /* Painel de Personagens */
 .personagens {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.personagens h2{
-    color:blue;
-    margin: 0;
-    font-weight: 300;
-    font-size: 1.2rem;
-    text-align: center;
+.personagens h2 {
+  color: blue;
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.personagem{
-    /* flex: 1; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.personagem {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.personagem img{
-    margin:10px;
+.personagem img {
+  margin: 10px;
 }
 
-.div-person:hover{
-    border: solid blue 1px;
+.div-person:hover {
+  border: solid blue 1px;
 }
 
-.heroiescolhido{
-    border: solid green 1px !important;
+.heroiescolhido {
+  border: solid green 1px !important;
 }
 
-.monstroescolhido{
-    border: solid red 1px !important;
+.monstroescolhido {
+  border: solid red 1px !important;
 }
 
-.div-person{
-    margin: 8px;
-    width: auto;
-    flex: 1 1 0;
-    min-width: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid transparent 1px;
+.div-person {
+  margin: 8px;
+  width: auto;
+  flex: 1 1 0;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid transparent 1px;
 }
-.monstros{
-    flex: 1;
-    min-width: 280px;
-    box-shadow: 0 2px 10px rgba(145, 27, 27, 0.65) !important;
+.monstros {
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 2px 10px rgba(145, 27, 27, 0.65) !important;
 }
 
-.herois{
-    flex: 1;
-    min-width: 280px;
-    box-shadow: 0 2px 10px rgba(55, 143, 37, 0.65) !important;
+.herois {
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 2px 10px rgba(55, 143, 37, 0.65) !important;
 }
 
 /* Icones */
-.icones{
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    margin: 3px;
+.icones {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
 }
 
-.icon{
-    margin: 1px !important;
-    width: 12px;
-    height: 12px;
+.icon {
+  margin: 1px !important;
+  width: 12px;
+  height: 12px;
 }
 
-.batalha{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    background-color: rgb(206, 206, 206);
-    background-image: url("assets/borda-batle.png") ;
-    background-size: auto;
-    background-position: center;
+.batalha {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: rgb(206, 206, 206);
+  background-image: url('assets/borda-batle.png');
+  background-size: auto;
+  background-position: center;
 }
 
-.animation{
-    background-color: transparent !important;
-    width : 40%;
+.animation {
+  background-color: transparent !important;
+  width: 40%;
 }
 
-.heroiAnimation{
-    margin-right: -60px;
+.heroiAnimation {
+  margin-right: -60px;
 }
 
-.monstroAnimation{
-    margin-left: -60px;
+.monstroAnimation {
+  margin-left: -60px;
+}
+
+.acao-modal {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.acao-modal-conteudo {
+  min-width: 280px;
+  padding: 18px 28px;
+  border: 3px solid #4253af;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.3);
+  color: #222;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  animation: mostrar-acao 0.25s ease-out;
+}
+
+@keyframes mostrar-acao {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

@@ -8,6 +8,9 @@ window.GameMethods = {
     this.monstro = Object.assign({}, this.inimigos[this.monstroEscolhido]);
     this.jogando = true;
     this.logs = [];
+    this.mensagemAcao = '';
+    this.acaoEmAndamento = false;
+    this.ataqueEspecialMonstro = false;
   },
 
   escolherPersonagem(num) {
@@ -19,6 +22,11 @@ window.GameMethods = {
   },
 
   attack(especial) {
+    if (this.acaoEmAndamento) {
+      return;
+    }
+    this.acaoEmAndamento = true;
+    this.mensagemAcao = especial ? 'Você está usando o ataque especial!' : 'Você está atacando!';
     this.jogador.animation = this.spritePath(this.jogador, especial ? 'ataque_especial' : 'ataque');
     this.monstro.animation = this.spritePath(this.monstro, 'hit');
 
@@ -30,14 +38,36 @@ window.GameMethods = {
       }
       this.dano(this.monstro, this.jogador.forca - 2, this.jogador.forca + 2, especial, 'Jogador', 'Monstro', css);
 
-      if (this.monstro.vida > 0) {
+      if (this.monstro.vida <= 0) {
+        this.mensagemAcao = 'O monstro foi derrotado!';
+        setTimeout(() => {
+          this.acaoEmAndamento = false;
+          this.mensagemAcao = '';
+        }, 1200);
+        return;
+      }
+
+      const ataqueEspecialMonstro = this.ataqueEspecialMonstro;
+      this.ataqueEspecialMonstro = false;
+      const iniciarAtaqueMonstro = () => {
+        this.mensagemAcao = ataqueEspecialMonstro ? 'O monstro está atacando novamente!' : 'O monstro está atacando!';
         this.monstro.animation = this.spritePath(this.monstro, 'ataque');
         this.jogador.animation = this.spritePath(this.jogador, 'hit');
         setTimeout(() => {
-          this.jogador.animation = this.spritePath(this.jogador, 'inicial');
-          this.monstro.animation = this.spritePath(this.monstro, 'inicial');
-        }, 2000);
-        this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+          this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+          setTimeout(() => {
+            this.jogador.animation = this.spritePath(this.jogador, 'inicial');
+            this.monstro.animation = this.spritePath(this.monstro, 'inicial');
+            this.acaoEmAndamento = false;
+            this.mensagemAcao = '';
+          }, 800);
+        }, 1200);
+      };
+
+      if (ataqueEspecialMonstro) {
+        setTimeout(iniciarAtaqueMonstro, 2000);
+      } else {
+        iniciarAtaqueMonstro();
       }
     }, 2000);
   },
@@ -50,17 +80,27 @@ window.GameMethods = {
   },
 
   curaEdano() {
+    if (this.acaoEmAndamento) {
+      return;
+    }
+    this.acaoEmAndamento = true;
+    this.mensagemAcao = 'Você está se curando!';
     this.jogador.animation = this.spritePath(this.jogador, 'vida');
     setTimeout(() => {
       const plus = this.jogador.id == 0 ? 5 : 0;
       this.cura(10, 15, plus);
+      this.mensagemAcao = 'O monstro está atacando!';
       this.monstro.animation = this.spritePath(this.monstro, 'ataque');
       this.jogador.animation = this.spritePath(this.jogador, 'hit');
       setTimeout(() => {
-        this.jogador.animation = this.spritePath(this.jogador, 'inicial');
-        this.monstro.animation = this.spritePath(this.monstro, 'inicial');
-      }, 2000);
-      this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+        this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+        setTimeout(() => {
+          this.jogador.animation = this.spritePath(this.jogador, 'inicial');
+          this.monstro.animation = this.spritePath(this.monstro, 'inicial');
+          this.acaoEmAndamento = false;
+          this.mensagemAcao = '';
+        }, 800);
+      }, 1200);
     }, 2000);
   },
 
@@ -72,6 +112,10 @@ window.GameMethods = {
   },
 
   suicidar() {
+    if (this.acaoEmAndamento) {
+      return;
+    }
+    this.mensagemAcao = 'Você desistiu da batalha.';
     this.jogador.animation = this.spritePath(this.jogador, 'dead');
     this.jogador.vida = 0;
     setTimeout(() => {

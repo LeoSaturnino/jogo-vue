@@ -9,6 +9,9 @@ new Vue({
     monstro: null,
     jogadorEscolhido: null,
     monstroEscolhido: null,
+    mensagemAcao: '',
+    acaoEmAndamento: false,
+    ataqueEspecialMonstro: false,
   },
   computed: {
     resultado() {

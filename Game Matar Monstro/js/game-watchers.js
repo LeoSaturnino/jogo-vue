@@ -30,6 +30,8 @@ window.GameWatchers = {
 
   'monstro.raiva'(value) {
     if (value == 3 && this.monstro && this.jogador) {
+      this.ataqueEspecialMonstro = true;
+      this.mensagemAcao = 'O monstro realizou um ataque especial!';
       this.monstro.animation = this.spritePath(this.monstro, 'ataque_especial');
       this.jogador.animation = this.spritePath(this.jogador, 'hit');
       setTimeout(() => {
