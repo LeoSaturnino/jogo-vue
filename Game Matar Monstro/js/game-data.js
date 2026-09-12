@@ -53,7 +53,7 @@ window.GameData = {
       vida: 90,
       mana: 6,
       forca: 6,
-      especial: 9,
+      especial: 10,
     },
   ],
   inimigos: [
@@ -74,7 +74,7 @@ window.GameData = {
       animation: 'assets/sprite/Minotauro/inicial.gif',
       animationOK: true,
       vida: 110,
-      raiva: 1,
+      raiva: 0,
       forca: 12,
     },
     {
