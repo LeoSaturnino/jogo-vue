@@ -130,7 +130,8 @@ window.GameMethods = {
   cura(min, max, plus) {
     this.jogador.mana--;
     const cura = this.getRandom(min + plus, max + plus);
-    this.jogador.vida = Math.min(this.jogador.vida + cura, 100);
+    const vidaMaxima = this.personagens[this.jogador.id].vida;
+    this.jogador.vida = Math.min(this.jogador.vida + cura, vidaMaxima);
     this.valorAcao = `Cura: +${cura}`;
     this.tipoValorAcao = 'cura-realizada';
     this.mensagemAcao = 'Cura realizada!';

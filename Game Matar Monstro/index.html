@@ -14,34 +14,34 @@
 <body>
     <div id="app">
         <div class="panel scores" v-if="jogando">
-            <div class="score">
+            <div class="score player-score">
                 <h1>{{ jogador.nome }}</h1>
                 <div class="life-bar">
-                    <div class="life" :class="{danger: jogador.vida < 20}"
+                    <div class="life" :class="{danger: jogador.vida / personagens[jogador.id].vida < 0.2}"
                         :style="{width: (jogador.vida/personagens[jogador.id].vida*100) + '%'}"></div>
                 </div>
-                <div>{{ jogador.vida }}%</div>
+                <div class="stat-value">{{ jogador.vida }} / {{ personagens[jogador.id].vida }} Vida</div>
 
                 <div class="life-bar">
                     <div class="mana" :class="{'poder-ganho': poderGanho}"
                         :style="{width: (jogador.mana * 100/personagens[jogador.id].mana) + '%'}"></div>
                 </div>
-                <div>Poder: {{ jogador.mana }}</div>
+                <div class="stat-value">Poder: {{ jogador.mana }}</div>
                 <img :src="jogador.img" width="60" height="90" class="jogadorFloat">
 
             </div>
-            <div class="score">
+            <div class="score monster-score">
                 <h1>{{ monstro.nome }}</h1>
                 <div class="life-bar">
-                    <div class="life" :class="{danger: monstro.vida < 20}"
+                    <div class="life" :class="{danger: monstro.vida / inimigos[monstro.id].vida < 0.2}"
                         :style="{width: (monstro.vida/inimigos[monstro.id].vida*100) + '%'}"></div>
                 </div>
-                <div>{{ monstro.vida }}%</div>
+                <div class="stat-value">{{ monstro.vida }} / {{ inimigos[monstro.id].vida }} Vida</div>
 
                 <div class="life-bar">
                     <div class="raiva" :style="{width: (monstro.raiva * 33) + '%'}"></div>
                 </div>
-                <div>Raiva: {{ monstro.raiva }}</div>
+                <div class="stat-value">Raiva: {{ monstro.raiva }}</div>
                 <img :src="monstro.img" width="60" height="90" class="monstroFloat">
             </div>
         </div>
@@ -55,7 +55,7 @@
             <div v-if="!jogando">
                 <div class="personagens">
                     <div class="panel herois">
-                        <h2>Hérois</h2>
+                        <h2>Heróis</h2>
                         <div class="personagem">
                             <div class="div-person" v-for="p in personagens"
                                 :class="{heroiescolhido: p.id == jogadorEscolhido}">
