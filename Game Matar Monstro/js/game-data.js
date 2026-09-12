@@ -8,7 +8,7 @@ window.GameData = {
       nome: 'Mago',
       vida: 100,
       mana: 5,
-      forca: 5,
+      forca: 6,
       especial: 9,
     },
     {
@@ -19,7 +19,7 @@ window.GameData = {
       animationOK: true,
       vida: 120,
       mana: 2,
-      forca: 8,
+      forca: 9,
       especial: 7,
     },
     {
@@ -31,7 +31,7 @@ window.GameData = {
       vida: 90,
       mana: 5,
       forca: 8,
-      especial: 7,
+      especial: 8,
     },
     {
       id: 3,
@@ -40,8 +40,8 @@ window.GameData = {
       animation: 'assets/sprite/Arqueiro/inicial.gif',
       animationOK: true,
       vida: 100,
-      mana: 5,
-      forca: 7,
+      mana: 4,
+      forca: 8,
       especial: 7,
     },
     {
@@ -52,8 +52,8 @@ window.GameData = {
       animationOK: true,
       vida: 90,
       mana: 6,
-      forca: 5,
-      especial: 10,
+      forca: 6,
+      especial: 9,
     },
   ],
   inimigos: [

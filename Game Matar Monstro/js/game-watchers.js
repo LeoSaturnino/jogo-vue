@@ -22,7 +22,7 @@ window.GameWatchers = {
   },
 
   'jogador.vida'(novo, antigo) {
-    if (this.jogador && this.monstro && antigo != null && antigo - novo > this.monstro.forca && this.jogador.vida > 0) {
+    if (this.jogador && this.monstro && antigo != null && antigo - novo > this.monstro.forca + 1 && this.jogador.vida > 0) {
       this.jogador.mana++;
       this.registerLog('Jogador ganhou 1 de Poder.', 'player-mana');
     }
