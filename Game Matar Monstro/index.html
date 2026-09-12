@@ -46,7 +46,10 @@
             </div>
         </div>
         <div v-if="mensagemAcao && jogando && !resultado" class="acao-modal" role="status" aria-live="polite">
-            <div class="acao-modal-conteudo">{{ mensagemAcao }}</div>
+            <div class="acao-modal-conteudo">
+                <div>{{ mensagemAcao }}</div>
+                <div v-if="valorAcao" class="acao-modal-resultado" :class="tipoValorAcao">{{ valorAcao }}</div>
+            </div>
         </div>
         <div id="acoes" class="panel buttons">
             <div v-if="!jogando">

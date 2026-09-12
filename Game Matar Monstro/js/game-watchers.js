@@ -32,12 +32,10 @@ window.GameWatchers = {
     if (value == 3 && this.monstro && this.jogador) {
       this.ataqueEspecialMonstro = true;
       this.mensagemAcao = 'O monstro realizou um ataque especial!';
+      this.valorAcao = `Dano: ${this.monstro.forca}`;
+      this.tipoValorAcao = 'dano-recebido';
       this.monstro.animation = this.spritePath(this.monstro, 'ataque_especial');
       this.jogador.animation = this.spritePath(this.jogador, 'hit');
-      setTimeout(() => {
-        this.jogador.animation = this.spritePath(this.jogador, 'inicial');
-        this.monstro.animation = this.spritePath(this.monstro, 'inicial');
-      }, 2000);
       this.jogador.vida -= this.monstro.forca;
       this.monstro.raiva = 0;
       this.registerLog(`Monstro causou ${this.monstro.forca} de dano no jogador.`, 'monster-especial');

@@ -13,6 +13,8 @@ new Vue({
     acaoEmAndamento: false,
     ataqueEspecialMonstro: false,
     poderGanho: false,
+    valorAcao: '',
+    tipoValorAcao: '',
   },
   computed: {
     resultado() {

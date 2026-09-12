@@ -11,6 +11,8 @@ window.GameMethods = {
     this.mensagemAcao = '';
     this.acaoEmAndamento = false;
     this.ataqueEspecialMonstro = false;
+    this.valorAcao = '';
+    this.tipoValorAcao = '';
   },
 
   escolherPersonagem(num) {
@@ -27,6 +29,8 @@ window.GameMethods = {
     }
     this.acaoEmAndamento = true;
     this.mensagemAcao = especial ? 'Você está usando o ataque especial!' : 'Você está atacando!';
+    this.valorAcao = '';
+    this.tipoValorAcao = '';
     this.jogador.animation = this.spritePath(this.jogador, especial ? 'ataque_especial' : 'ataque');
     this.monstro.animation = this.spritePath(this.monstro, 'hit');
 
@@ -47,28 +51,38 @@ window.GameMethods = {
         return;
       }
 
-      const ataqueEspecialMonstro = this.ataqueEspecialMonstro;
-      this.ataqueEspecialMonstro = false;
-      const iniciarAtaqueMonstro = () => {
-        this.mensagemAcao = ataqueEspecialMonstro ? 'O monstro está atacando novamente!' : 'O monstro está atacando!';
-        this.monstro.animation = this.spritePath(this.monstro, 'ataque');
-        this.jogador.animation = this.spritePath(this.jogador, 'hit');
-        setTimeout(() => {
-          this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
-          setTimeout(() => {
-            this.jogador.animation = this.spritePath(this.jogador, 'inicial');
-            this.monstro.animation = this.spritePath(this.monstro, 'inicial');
+      const continuarTurno = () => {
+        const ataqueEspecialMonstro = this.ataqueEspecialMonstro;
+        this.ataqueEspecialMonstro = false;
+        const iniciarAtaqueMonstro = () => {
+          if (this.jogador.vida <= 0) {
             this.acaoEmAndamento = false;
-            this.mensagemAcao = '';
-          }, 800);
-        }, 1200);
+            return;
+          }
+          this.valorAcao = '';
+          this.mensagemAcao = ataqueEspecialMonstro ? 'O monstro está atacando novamente!' : 'O monstro está atacando!';
+          this.monstro.animation = this.spritePath(this.monstro, 'ataque');
+          this.jogador.animation = this.spritePath(this.jogador, 'hit');
+          setTimeout(() => {
+            this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+            setTimeout(() => {
+              this.jogador.animation = this.spritePath(this.jogador, 'inicial');
+              this.monstro.animation = this.spritePath(this.monstro, 'inicial');
+              this.acaoEmAndamento = false;
+              this.mensagemAcao = '';
+              this.valorAcao = '';
+            }, 800);
+          }, 1200);
+        };
+
+        if (ataqueEspecialMonstro) {
+          setTimeout(iniciarAtaqueMonstro, 2000);
+        } else {
+          setTimeout(iniciarAtaqueMonstro, 900);
+        }
       };
 
-      if (ataqueEspecialMonstro) {
-        setTimeout(iniciarAtaqueMonstro, 2000);
-      } else {
-        iniciarAtaqueMonstro();
-      }
+      setTimeout(continuarTurno, 0);
     }, 2000);
   },
 
@@ -76,6 +90,9 @@ window.GameMethods = {
     const plus = especial ? this.jogador.especial : 0;
     const dano = this.getRandom(min + plus, max + plus);
     personagem.vida = Math.max(personagem.vida - dano, 0);
+    this.valorAcao = `Dano: ${dano}`;
+    this.tipoValorAcao = source === 'Jogador' ? 'dano-causado' : 'dano-recebido';
+    this.mensagemAcao = source === 'Jogador' ? 'Ataque realizado!' : 'Ataque do monstro realizado!';
     this.registerLog(`${source} atingiu ${target} com ${dano}.`, cls);
   },
 
@@ -85,22 +102,28 @@ window.GameMethods = {
     }
     this.acaoEmAndamento = true;
     this.mensagemAcao = 'Você está se curando!';
+    this.valorAcao = '';
+    this.tipoValorAcao = '';
     this.jogador.animation = this.spritePath(this.jogador, 'vida');
     setTimeout(() => {
       const plus = this.jogador.id == 0 ? 5 : 0;
       this.cura(10, 15, plus);
-      this.mensagemAcao = 'O monstro está atacando!';
-      this.monstro.animation = this.spritePath(this.monstro, 'ataque');
-      this.jogador.animation = this.spritePath(this.jogador, 'hit');
       setTimeout(() => {
-        this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+        this.valorAcao = '';
+        this.mensagemAcao = 'O monstro está atacando!';
+        this.monstro.animation = this.spritePath(this.monstro, 'ataque');
+        this.jogador.animation = this.spritePath(this.jogador, 'hit');
         setTimeout(() => {
-          this.jogador.animation = this.spritePath(this.jogador, 'inicial');
-          this.monstro.animation = this.spritePath(this.monstro, 'inicial');
-          this.acaoEmAndamento = false;
-          this.mensagemAcao = '';
-        }, 800);
-      }, 1200);
+          this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+          setTimeout(() => {
+            this.jogador.animation = this.spritePath(this.jogador, 'inicial');
+            this.monstro.animation = this.spritePath(this.monstro, 'inicial');
+            this.acaoEmAndamento = false;
+            this.mensagemAcao = '';
+            this.valorAcao = '';
+          }, 800);
+        }, 1200);
+      }, 900);
     }, 2000);
   },
 
@@ -108,6 +131,9 @@ window.GameMethods = {
     this.jogador.mana--;
     const cura = this.getRandom(min + plus, max + plus);
     this.jogador.vida = Math.min(this.jogador.vida + cura, 100);
+    this.valorAcao = `Cura: +${cura}`;
+    this.tipoValorAcao = 'cura-realizada';
+    this.mensagemAcao = 'Cura realizada!';
     this.registerLog(`Jogador ganhou ${cura} de vida.`, 'player-cura');
   },
 
@@ -116,6 +142,7 @@ window.GameMethods = {
       return;
     }
     this.mensagemAcao = 'Você desistiu da batalha.';
+    this.valorAcao = '';
     this.jogador.animation = this.spritePath(this.jogador, 'dead');
     this.jogador.vida = 0;
     setTimeout(() => {
