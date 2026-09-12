@@ -16,39 +16,41 @@
         <div class="panel scores" v-if="jogando">
             <div class="score player-score">
                 <h1>{{ jogador.nome }}</h1>
-                <div class="life-bar">
-                    <div class="life" :class="{danger: jogador.vida / personagens[jogador.id].vida < 0.2}"
-                        :style="{width: (jogador.vida/personagens[jogador.id].vida*100) + '%'}"></div>
-                </div>
-                <div class="stat-value">{{ jogador.vida }} / {{ personagens[jogador.id].vida }} Vida</div>
+                <div class="status-layout">
+                    <div class="status-metrics">
+                        <div class="life-bar">
+                            <div class="life" :class="{danger: jogador.vida / personagens[jogador.id].vida < 0.2}"
+                                :style="{width: (jogador.vida/personagens[jogador.id].vida*100) + '%'}"></div>
+                        </div>
+                        <div class="stat-value">{{ jogador.vida }} / {{ personagens[jogador.id].vida }} Vida</div>
 
-                <div class="life-bar">
-                    <div class="mana" :class="{'poder-ganho': poderGanho}"
-                        :style="{width: (jogador.mana * 100/personagens[jogador.id].mana) + '%'}"></div>
+                        <div class="life-bar">
+                            <div class="mana" :class="{'poder-ganho': poderGanho}"
+                                :style="{width: (jogador.mana * 100/personagens[jogador.id].mana) + '%'}"></div>
+                        </div>
+                        <div class="stat-value">Poder: {{ jogador.mana }}</div>
                 </div>
-                <div class="stat-value">Poder: {{ jogador.mana }}</div>
-                <img :src="jogador.img" width="60" height="90" class="jogadorFloat">
+                    <img :src="jogador.img" width="60" height="90" class="jogadorFloat">
+                </div>
 
             </div>
             <div class="score monster-score">
                 <h1>{{ monstro.nome }}</h1>
-                <div class="life-bar">
-                    <div class="life" :class="{danger: monstro.vida / inimigos[monstro.id].vida < 0.2}"
-                        :style="{width: (monstro.vida/inimigos[monstro.id].vida*100) + '%'}"></div>
-                </div>
-                <div class="stat-value">{{ monstro.vida }} / {{ inimigos[monstro.id].vida }} Vida</div>
+                <div class="status-layout">
+                    <div class="status-metrics">
+                        <div class="life-bar">
+                            <div class="life" :class="{danger: monstro.vida / inimigos[monstro.id].vida < 0.2}"
+                                :style="{width: (monstro.vida/inimigos[monstro.id].vida*100) + '%'}"></div>
+                        </div>
+                        <div class="stat-value">{{ monstro.vida }} / {{ inimigos[monstro.id].vida }} Vida</div>
 
-                <div class="life-bar">
-                    <div class="raiva" :style="{width: (monstro.raiva * 33) + '%'}"></div>
+                        <div class="life-bar">
+                            <div class="raiva" :style="{width: (monstro.raiva * 33) + '%'}"></div>
+                        </div>
+                        <div class="stat-value">Raiva: {{ monstro.raiva }}</div>
+                    </div>
+                    <img :src="monstro.img" width="60" height="90" class="monstroFloat">
                 </div>
-                <div class="stat-value">Raiva: {{ monstro.raiva }}</div>
-                <img :src="monstro.img" width="60" height="90" class="monstroFloat">
-            </div>
-        </div>
-        <div v-if="mensagemAcao && jogando && !resultado" class="acao-modal" role="status" aria-live="polite">
-            <div class="acao-modal-conteudo">
-                <div>{{ mensagemAcao }}</div>
-                <div v-if="valorAcao" class="acao-modal-resultado" :class="tipoValorAcao">{{ valorAcao }}</div>
             </div>
         </div>
         <div id="acoes" class="panel buttons">
@@ -91,6 +93,12 @@
             </div>
             <div v-else>
                 <div class="batalha" v-if="jogador.animationOK && monstro.animationOK">
+                    <div v-if="mensagemAcao && jogando && !resultado" class="acao-modal" role="status" aria-live="polite">
+                        <div class="acao-modal-conteudo">
+                            <div>{{ mensagemAcao }}</div>
+                            <div v-if="valorAcao" class="acao-modal-resultado" :class="tipoValorAcao">{{ valorAcao }}</div>
+                        </div>
+                    </div>
                     <div class="animation heroiAnimation">
                         <img :src="jogador.animation" >
                     </div>
