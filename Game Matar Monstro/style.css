@@ -480,6 +480,10 @@ body {
   gap: 16px;
 }
 
+.status-layout > img {
+  order: -1;
+}
+
 .status-metrics {
   flex: 1;
   min-width: 0;
