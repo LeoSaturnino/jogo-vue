@@ -694,7 +694,8 @@ body {
   height: 126px;
   margin: 8px;
   border-radius: 6px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff;
 }
 
 .icones {
