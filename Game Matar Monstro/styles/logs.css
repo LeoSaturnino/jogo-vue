@@ -1,0 +1,53 @@
+.logs {
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.logs ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logs ul li {
+  display: flex;
+  justify-content: center;
+  margin: 3px 0;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.player {
+  background-color: #0484daca;
+  color: #fff;
+}
+.monster {
+  background-color: #e23737ca;
+  color: #fff;
+}
+.player-cura {
+  background-color: #34b62fca;
+  color: #fff;
+}
+.player-mana {
+  background-color: #06b3e7ca;
+  color: #fff;
+}
+.player-especial {
+  background-color: #0655e7ca;
+  color: #fff;
+}
+.monster-especial {
+  background-color: #ff0000ca;
+  color: #fff;
+}
+.monster-raiva {
+  background-color: #e56c1cca;
+  color: #fff;
+}

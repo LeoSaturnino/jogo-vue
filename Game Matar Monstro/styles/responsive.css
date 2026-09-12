@@ -1,0 +1,40 @@
+@media (max-width: 680px) {
+  #app {
+    width: min(100% - 20px, 520px);
+    padding-top: 14px;
+  }
+
+  .scores,
+  .personagens {
+    grid-template-columns: 1fr;
+  }
+  .score {
+    padding: 18px;
+  }
+
+  .batalha {
+    min-height: 190px;
+    padding-top: 92px;
+  }
+
+  .batalha::before {
+    top: 92px;
+    bottom: 12px;
+  }
+
+  .status-layout {
+    gap: 10px;
+  }
+
+  .jogadorFloat,
+  .monstroFloat {
+    flex-basis: 44px;
+    width: 44px;
+    height: 64px;
+  }
+
+  .btn {
+    flex: 1 1 calc(50% - 10px);
+    padding-inline: 10px;
+  }
+}

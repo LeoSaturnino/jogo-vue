@@ -1,0 +1,84 @@
+.personagens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.personagens .panel {
+  padding: 18px;
+}
+
+.personagens h2 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.herois {
+  border-top: 4px solid var(--player);
+  box-shadow: var(--shadow) !important;
+}
+.monstros {
+  border-top: 4px solid var(--monster);
+  box-shadow: var(--shadow) !important;
+}
+
+.personagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.div-person {
+  min-width: 0;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 8px 5px 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.div-person:hover {
+  border-color: #9bb8b4;
+  background: #f1f7f5;
+  transform: translateY(-2px);
+}
+.heroiescolhido {
+  border-color: var(--player) !important;
+  background: #edf8f5;
+}
+.monstroescolhido {
+  border-color: var(--monster) !important;
+  background: #fff2ed;
+}
+
+.div-person > img {
+  width: 92px;
+  height: 126px;
+  margin: 8px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.icones {
+  margin: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.icon {
+  width: 12px;
+  height: 12px;
+  margin: 1px !important;
+}

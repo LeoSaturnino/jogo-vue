@@ -1,0 +1,124 @@
+.batalha {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+  padding-top: 104px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid #cbd2d7;
+  border-radius: 14px;
+  background-color: #dfe5e5;
+  background-image: url('../assets/borda-batle.png');
+  background-position: center;
+  box-shadow: inset 0 0 35px rgba(23, 32, 42, 0.12);
+}
+
+.batalha::before {
+  position: absolute;
+  top: 104px;
+  right: 5%;
+  bottom: 18px;
+  left: 5%;
+  z-index: 0;
+  border-radius: 4px;
+  background: #fff;
+  content: '';
+}
+
+.animation {
+  position: relative;
+  z-index: 1;
+  width: 42%;
+}
+.animation img {
+  display: block;
+  width: 100%;
+  max-height: 270px;
+  object-fit: contain;
+}
+.monstroAnimation img {
+  transform: scaleX(-1);
+}
+
+.acao-modal {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.batalha .acao-modal {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.acao-modal-conteudo {
+  min-width: 280px;
+  padding: 18px 28px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 34px rgba(23, 32, 42, 0.22);
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  animation: mostrar-acao 0.25s ease-out;
+}
+
+.acao-modal-resultado {
+  margin-top: 10px;
+  font-size: 2rem;
+  animation: destacar-resultado 0.45s ease-out;
+}
+.dano-causado {
+  color: #c62828;
+}
+.dano-recebido {
+  color: #8e24aa;
+}
+.cura-realizada {
+  color: #218838;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.result .win {
+  color: green;
+}
+.result .lose {
+  color: red;
+}
+
+@keyframes mostrar-acao {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes destacar-resultado {
+  from {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

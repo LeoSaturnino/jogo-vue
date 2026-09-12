@@ -1,0 +1,74 @@
+#acoes {
+  padding: 18px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  min-height: 42px;
+  margin: 0;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: 0 3px 0 rgba(23, 32, 42, 0.18);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 rgba(23, 32, 42, 0.2);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgba(23, 32, 42, 0.2);
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.new-game {
+  background: var(--player-dark);
+  color: #fff;
+}
+.attack {
+  background: var(--monster);
+  color: #fff;
+}
+.especial-attack {
+  background: var(--power);
+  color: #fff;
+}
+.cura {
+  background: #3b9b62;
+  color: #fff;
+}
+.give-up {
+  background: #d5d9dc;
+  color: var(--ink);
+}
+.disabled {
+  filter: grayscale(0.4);
+}
+
+.buttoncenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
