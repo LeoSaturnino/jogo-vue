@@ -23,9 +23,10 @@
                 <div>{{ jogador.vida }}%</div>
 
                 <div class="life-bar">
-                    <div class="mana" :style="{width: (jogador.mana * 100/personagens[jogador.id].mana) + '%'}"></div>
+                    <div class="mana" :class="{'poder-ganho': poderGanho}"
+                        :style="{width: (jogador.mana * 100/personagens[jogador.id].mana) + '%'}"></div>
                 </div>
-                <div>Mana: {{ jogador.mana }}</div>
+                <div>Poder: {{ jogador.mana }}</div>
                 <img :src="jogador.img" width="60" height="90" class="jogadorFloat">
 
             </div>

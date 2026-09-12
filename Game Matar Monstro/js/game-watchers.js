@@ -24,7 +24,7 @@ window.GameWatchers = {
   'jogador.vida'(novo, antigo) {
     if (this.jogador && this.monstro && antigo != null && antigo - novo > this.monstro.forca && this.jogador.vida > 0) {
       this.jogador.mana++;
-      this.registerLog('Jogador ganhou 1 de Mana.', 'player-mana');
+      this.registerLog('Jogador ganhou 1 de Poder.', 'player-mana');
     }
   },
 
@@ -44,7 +44,16 @@ window.GameWatchers = {
     }
   },
 
-  'jogador.mana'() {
+  'jogador.mana'(novo, antigo) {
+    if (this.jogador && antigo != null && novo > antigo) {
+      this.poderGanho = false;
+      this.$nextTick(() => {
+        this.poderGanho = true;
+        setTimeout(() => {
+          this.poderGanho = false;
+        }, 800);
+      });
+    }
     if (this.jogador && this.jogador.mana > this.personagens[this.jogador.id].mana) {
       this.jogador.mana = this.personagens[this.jogador.id].mana;
     }

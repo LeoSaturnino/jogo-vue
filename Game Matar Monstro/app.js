@@ -12,6 +12,7 @@ new Vue({
     mensagemAcao: '',
     acaoEmAndamento: false,
     ataqueEspecialMonstro: false,
+    poderGanho: false,
   },
   computed: {
     resultado() {
