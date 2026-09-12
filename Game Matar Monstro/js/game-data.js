@@ -2,7 +2,7 @@ window.GameData = {
   personagens: [
     {
       id: 0,
-      img: 'assets/person/mago.jpg',
+      img: 'assets/person/mago.png',
       animation: 'assets/sprite/Mago/inicial.gif',
       animationOK: true,
       nome: 'Mago',
@@ -14,7 +14,7 @@ window.GameData = {
     {
       id: 1,
       nome: 'Guerreiro',
-      img: 'assets/person/guerreiro.jpg',
+      img: 'assets/person/guerreiro.png',
       animation: 'assets/sprite/Guerreiro/inicial.gif',
       animationOK: true,
       vida: 120,
@@ -25,7 +25,7 @@ window.GameData = {
     {
       id: 2,
       nome: 'Arqueiro',
-      img: 'assets/person/arqueiro.jpg',
+      img: 'assets/person/arqueiro.png',
       animation: 'assets/sprite/Arqueiro/inicial.gif',
       animationOK: true,
       vida: 100,
@@ -36,7 +36,7 @@ window.GameData = {
     {
       id: 3,
       nome: 'Ninja',
-      img: 'assets/person/ninja.jpg',
+      img: 'assets/person/ninja.png',
       animation: 'assets/sprite/Ninja/inicial.gif',
       animationOK: true,
       vida: 90,
@@ -47,7 +47,7 @@ window.GameData = {
     {
       id: 5,
       nome: 'Bruxa',
-      img: 'assets/person/bruxa.jpg',
+      img: 'assets/person/bruxa.png',
       animation: 'assets/sprite/Bruxa/inicial.gif',
       animationOK: true,
       vida: 90,
@@ -60,7 +60,7 @@ window.GameData = {
     {
       id: 0,
       nome: 'Fera',
-      img: 'assets/person/fera.jpg',
+      img: 'assets/person/fera.png',
       animation: 'assets/sprite/Fera/inicial.gif',
       animationOK: true,
       vida: 100,
@@ -70,7 +70,7 @@ window.GameData = {
     {
       id: 1,
       nome: 'Minotauro',
-      img: 'assets/person/minotauro.jpg',
+      img: 'assets/person/minotauro.png',
       animation: 'assets/sprite/Minotauro/inicial.gif',
       animationOK: true,
       vida: 100,
@@ -80,7 +80,7 @@ window.GameData = {
     {
       id: 2,
       nome: 'Medusa',
-      img: 'assets/person/medusa.jpg',
+      img: 'assets/person/medusa.png',
       animation: 'assets/sprite/Medusa/inicial.gif',
       animationOK: true,
       vida: 120,
@@ -90,7 +90,7 @@ window.GameData = {
     {
       id: 3,
       nome: 'Esqueleto',
-      img: 'assets/person/esqueeto.jpg',
+      img: 'assets/person/esqueleto.png',
       animation: 'assets/sprite/Esqueleto/inicial.gif',
       animationOK: true,
       vida: 90,
@@ -100,7 +100,7 @@ window.GameData = {
     {
       id: 4,
       nome: 'Cavaleiro',
-      img: 'assets/person/cavaleiro.jpg',
+      img: 'assets/person/cavaleiro.png',
       animation: 'assets/sprite/Cavaleiro/inicial.gif',
       animationOK: true,
       vida: 130,
