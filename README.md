@@ -9,6 +9,18 @@ Jogo de batalha em turnos com objetivo de Matar o Monstro Adversário
 - VueJS
 - JavaScript
 
+<h3>Organização do código</h3>
+
+As responsabilidades do jogo estão separadas para facilitar manutenção:
+
+- `app.js` inicializa a aplicação Vue e reúne a configuração principal.
+- `js/game-data.js` contém os dados dos personagens e inimigos.
+- `js/game-utils.js` contém funções reutilizáveis, como caminhos de sprites e números aleatórios.
+- `js/game-combat.js` contém as ações e regras de combate.
+- `js/game-watchers.js` contém os observadores de vida, mana, raiva e resultado da partida.
+
+Os arquivos são carregados diretamente pelo `index.html`, portanto o projeto continua funcionando sem instalação de dependências locais.
+
 <h3>Objetivo</h3>
 Aprender a linguagem de Programação VueJS e como as tecnologias reativas funcionam.
 
@@ -18,15 +30,17 @@ O Jogador começa escolhendo o seu Herói e o Monstro adversário que irá Batal
 ![jmm - incio](https://user-images.githubusercontent.com/22065816/109401543-24ee8500-792e-11eb-8265-f457b0c3a728.png)
 
 Após inciar o Jogo o jogador tem 4 opções de Movimento:
+
 - Ataque = o movimento basico onde o herói realiza um golpe com base na sua força e retirando vida do Monstro
 - Ataque Especial = o herói realiza um golpe mais forte, consumindo 1 da sua mana disponível
 - Cura = O herói deixa de atacar este turno para recuperar um pouco de vida, consumindo 1 da sua mana disponível
 - Suicidar = Opção no qual o Jogador desiste do Jogo e encera a partida com detora
-![jmm - interface](https://user-images.githubusercontent.com/22065816/109401498-e8228e00-792d-11eb-8a35-4e29ef8c875e.png)
+  ![jmm - interface](https://user-images.githubusercontent.com/22065816/109401498-e8228e00-792d-11eb-8a35-4e29ef8c875e.png)
 
 Para cada Ação do Jogador o Monstro Adversário realizará um Ataque com base na força do monstro.
 
 Mecânicas do Jogo:
+
 - Ganho de Mana/Raiva = sempre que o herói toma um dano crítico ele ganha um de mana, o crítico é calculado em função da força dos personagens.
 - Ataque de Raiva = Quando o Monstro atige 3 de Raiva ele executa um ataque extra.
 - Ataque = É calculado em função da força do Personagem com uma variação de +2 ou -2.
