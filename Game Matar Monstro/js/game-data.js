@@ -45,7 +45,7 @@ window.GameData = {
       especial: 6,
     },
     {
-      id: 5,
+      id: 4,
       nome: 'Bruxa',
       img: 'assets/person/bruxa.png',
       animation: 'assets/sprite/Bruxa/inicial.gif',
