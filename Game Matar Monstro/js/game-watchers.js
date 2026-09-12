@@ -15,7 +15,7 @@ window.GameWatchers = {
   },
 
   'monstro.vida'(novo, antigo) {
-    if (this.monstro && antigo != null && antigo - novo > 10 && this.monstro.vida > 0) {
+    if (this.monstro && antigo != null && antigo - novo > this.monstro.forca && this.monstro.vida > 0) {
       this.monstro.raiva++;
       this.registerLog('Monstro ganhou 1 de Raiva.', 'monster-raiva');
     }

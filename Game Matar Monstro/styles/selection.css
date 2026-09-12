@@ -27,9 +27,9 @@
 }
 
 .personagem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
   gap: 8px;
 }
 
@@ -40,9 +40,10 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: 8px 5px 10px;
+  padding: 8px 2px 10px;
   border: 2px solid transparent;
   border-radius: 10px;
+  box-sizing: border-box;
   transition:
     background-color 0.15s ease,
     border-color 0.15s ease,
@@ -54,6 +55,16 @@
   background: #f1f7f5;
   transform: translateY(-2px);
 }
+
+.div-person > label,
+.div-person > div {
+  width: 100%;
+  text-align: center;
+}
+
+.div-person > label {
+  min-height: 2.4em;
+}
 .heroiescolhido {
   border-color: var(--player) !important;
   background: #edf8f5;
@@ -64,6 +75,7 @@
 }
 
 .div-person > img {
+  max-width: calc(100% - 16px);
   width: 92px;
   height: 126px;
   margin: 8px;

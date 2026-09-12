@@ -64,7 +64,7 @@ window.GameMethods = {
           this.monstro.animation = this.spritePath(this.monstro, 'ataque');
           this.jogador.animation = this.spritePath(this.jogador, 'hit');
           setTimeout(() => {
-            this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+            this.dano(this.jogador, this.monstro.forca - 3, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
             setTimeout(() => {
               this.jogador.animation = this.spritePath(this.jogador, 'inicial');
               this.monstro.animation = this.spritePath(this.monstro, 'inicial');
@@ -106,15 +106,14 @@ window.GameMethods = {
     this.tipoValorAcao = '';
     this.jogador.animation = this.spritePath(this.jogador, 'vida');
     setTimeout(() => {
-      const plus = this.jogador.id == 0 ? 5 : 0;
-      this.cura(10, 15, plus);
+      this.cura(this.monstro.forca, 15, this.jogador.especial);
       setTimeout(() => {
         this.valorAcao = '';
         this.mensagemAcao = 'O monstro está atacando!';
         this.monstro.animation = this.spritePath(this.monstro, 'ataque');
         this.jogador.animation = this.spritePath(this.jogador, 'hit');
         setTimeout(() => {
-          this.dano(this.jogador, this.monstro.forca - 2, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
+          this.dano(this.jogador, this.monstro.forca - 3, this.monstro.forca + 2, false, 'Monstro', 'Jogador', 'monster');
           setTimeout(() => {
             this.jogador.animation = this.spritePath(this.jogador, 'inicial');
             this.monstro.animation = this.spritePath(this.monstro, 'inicial');

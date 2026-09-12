@@ -1,3 +1,9 @@
+@media (max-width: 980px) {
+  .personagens {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 680px) {
   #app {
     width: min(100% - 20px, 520px);
@@ -8,6 +14,17 @@
   .personagens {
     grid-template-columns: 1fr;
   }
+
+  .personagem {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .div-person {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
   .score {
     padding: 18px;
   }
